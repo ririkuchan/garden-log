@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GardenLog | My Personal Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-area">
+            <h1>GardenLog</h1>
+        </div>
+        <nav>
+            <button id="add-plant-btn">+ Add Plant</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="task-list-section">
+            <h2>Today's Tasks</h2>
+            <ul id="task-list">
+                </ul>
+        </section>
+
+        <section id="garden-dashboard">
+            <h2>My Garden</h2>
+            <div id="filter-controls">
+                <button class="filter-btn" data-type="all">All</button>
+                <button class="filter-btn" data-type="Citrus">Citrus</button> <button class="filter-btn" data-type="Fruit Tree">Fruit Trees</button> <button class="filter-btn" data-type="Berries">Berries</button> <button class="filter-btn" data-type="Herbs">Herbs & Veg</button> <button class="filter-btn" data-type="Flowers">Flowers</button> </div>
+            <div id="plant-grid">
+                <p>Loading your garden...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GardenLog - Ririku Shirakawa</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

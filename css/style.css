@@ -1,0 +1,101 @@
+/* 1. Variables - ニュアンスカラーの設定 */
+:root {
+  --primary-color: #8DAA91;   /* Sage Green (プロポーザル指定)  */
+  --accent-color: #CC7E5C;    /* Terracotta (ニュアンスのあるアクセント)  */
+  --bg-color: #FAF9F6;        /* Off-White (温かみのある白)  */
+  --text-color: #5D4037;      /* Earth Brown (コントラストを抑えた茶)  */
+  --card-bg: #ffffff;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 柔らかな影 */
+}
+
+/* 2. Basic Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif; /* プロポーザル指定 [cite: 37] */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif; /* プロポーザル指定 [cite: 37] */
+  font-weight: 700;
+}
+
+/* 3. Layout */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* 4. Dashboard (Grid) */
+#plant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* 5. Components - ニュアンスのあるカードデザイン */
+.plant-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  border: 1px solid #eee;
+  transition: transform 0.2s;
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#filter-controls {
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+/* 6. Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
