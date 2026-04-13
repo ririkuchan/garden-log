@@ -165,7 +165,7 @@
     "fertilizer_type": "High Potassium",
     "hardiness_zone": "3-10",
     "image_alt": "Freshly harvested potatoes in soil",
-    "image_url": "https://images.unsplash.com/photo-1518977676601-b53f02ac6d3d?q=80&w=2670&auto=format&fit=crop"
+    "image_url": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "nanohana-01",
@@ -179,7 +179,7 @@
     "fertilizer_type": "Balanced 10-10-10",
     "hardiness_zone": "7-10",
     "image_alt": "Bright yellow Nanohana flowers in a field",
-    "image_url": "https://images.unsplash.com/photo-1515091814930-1926673644f0?q=80&w=2670&auto=format&fit=crop"
+    "image_url": "https://images.unsplash.com/photo-1552614856-f4bc5e28ba4e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "garlic-01",
@@ -193,7 +193,7 @@
     "fertilizer_type": "Nitrogen-rich",
     "hardiness_zone": "4-9",
     "image_alt": "Fresh garlic bulbs with white skin",
-    "image_url": "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=2670&auto=format&fit=crop"
+    "image_url": "https://images.unsplash.com/photo-1612065841039-be5dc32dd0a7?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "red-chili-01",
@@ -207,6 +207,6 @@
     "fertilizer_type": "Tomato/Pepper food",
     "hardiness_zone": "9-11",
     "image_alt": "Bright red chili peppers hanging on a plant",
-    "image_url": "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?q=80&w=2670&auto=format&fit=crop"
+    "image_url": "https://images.unsplash.com/photo-1622993361024-ae1c39cda16c?q=80&w=2583&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ]
