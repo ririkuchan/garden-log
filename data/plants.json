@@ -152,5 +152,61 @@
     "hardiness_zone": "8-11",
     "image_alt": "Yellow yuzu fruits with bumpy skin on a branch",
     "image_url": "https://images.unsplash.com/photo-1707403735805-b51972844a55?q=80&w=2662&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "potato-01",
+    "name": "Potato",
+    "scientific_name": "Solanum tuberosum",
+    "type": "Herbs",
+    "sunlight": "Full Sun",
+    "water_interval_days": 3,
+    "ph_ideal": 5.5,
+    "pruning_season": "N/A",
+    "fertilizer_type": "High Potassium",
+    "hardiness_zone": "3-10",
+    "image_alt": "Freshly harvested potatoes in soil",
+    "image_url": "https://images.unsplash.com/photo-1518977676601-b53f02ac6d3d?q=80&w=2670&auto=format&fit=crop"
+  },
+  {
+    "id": "nanohana-01",
+    "name": "Nanohana (Canola)",
+    "scientific_name": "Brassica rapa",
+    "type": "Flowers",
+    "sunlight": "Full Sun",
+    "water_interval_days": 2,
+    "ph_ideal": 6.5,
+    "pruning_season": "After flowering",
+    "fertilizer_type": "Balanced 10-10-10",
+    "hardiness_zone": "7-10",
+    "image_alt": "Bright yellow Nanohana flowers in a field",
+    "image_url": "https://images.unsplash.com/photo-1515091814930-1926673644f0?q=80&w=2670&auto=format&fit=crop"
+  },
+  {
+    "id": "garlic-01",
+    "name": "Garlic",
+    "scientific_name": "Allium sativum",
+    "type": "Herbs",
+    "sunlight": "Full Sun",
+    "water_interval_days": 5,
+    "ph_ideal": 6.8,
+    "pruning_season": "Scape removal in June",
+    "fertilizer_type": "Nitrogen-rich",
+    "hardiness_zone": "4-9",
+    "image_alt": "Fresh garlic bulbs with white skin",
+    "image_url": "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=2670&auto=format&fit=crop"
+  },
+  {
+    "id": "red-chili-01",
+    "name": "Red Chili Pepper",
+    "scientific_name": "Capsicum annuum",
+    "type": "Herbs",
+    "sunlight": "Full Sun",
+    "water_interval_days": 3,
+    "ph_ideal": 6.2,
+    "pruning_season": "Late spring pinch",
+    "fertilizer_type": "Tomato/Pepper food",
+    "hardiness_zone": "9-11",
+    "image_alt": "Bright red chili peppers hanging on a plant",
+    "image_url": "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?q=80&w=2670&auto=format&fit=crop"
   }
 ]
