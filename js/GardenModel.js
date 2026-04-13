@@ -14,4 +14,16 @@ export default class GardenModel {
     this.garden.push(plant);
     localStorage.setItem('myGarden', JSON.stringify(this.garden));
   }
+
+  addJournalEntry(plantId, entryText) {
+    const plant = this.garden.find(p => p.id === plantId);
+    if (plant) {
+        if (!plant.journal) plant.journal = [];
+        plant.journal.push({
+            date: new Date().toLocaleDateString(),
+            text: entryText
+        });
+        localStorage.setItem('myGarden', JSON.stringify(this.garden));
+    }
+  }
 }
