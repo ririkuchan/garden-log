@@ -13,7 +13,7 @@
             <h1>GardenLog</h1>
         </div>
         <nav>
-            <button id="add-plant-btn">+ Add Plant</button>
+            <a href="#add-plant-section" class="nav-btn">+ Add Plant</a>
         </nav>
     </header>
 
@@ -21,27 +21,48 @@
         <section id="task-list-section">
             <h2>Today's Tasks</h2>
             <ul id="task-list">
-                </ul>
+                <li>Checking your plants...</li>
+            </ul>
         </section>
 
         <section id="garden-dashboard">
             <h2>My Garden</h2>
             <div id="filter-controls">
                 <button class="filter-btn" data-type="all">All</button>
-                <button class="filter-btn" data-type="Citrus">Citrus</button> <button class="filter-btn" data-type="Fruit Tree">Fruit Trees</button> <button class="filter-btn" data-type="Berries">Berries</button> <button class="filter-btn" data-type="Herbs">Herbs & Veg</button> <button class="filter-btn" data-type="Flowers">Flowers</button> </div>
+                <button class="filter-btn" data-type="Citrus">Citrus</button>
+                <button class="filter-btn" data-type="Fruit Tree">Fruit Trees</button>
+                <button class="filter-btn" data-type="Berries">Berries</button>
+                <button class="filter-btn" data-type="Herbs">Herbs & Veg</button>
+                <button class="filter-btn" data-type="Flowers">Flowers</button>
+            </div>
+
             <div id="plant-grid">
                 <p>Loading your garden...</p>
             </div>
         </section>
+
         <section id="add-plant-section">
-        <h2>Add New Plant</h2>
-        <form id="add-plant-form">
-            <input type="text" id="plant-nickname" placeholder="Nickname (e.g. My Lemon Tree)" required>
-            <select id="plant-species-select">
-            </select>
-            <button type="submit">Add to My Garden</button>
-        </form>
-    </section>
+            <h2>Add New Plant to Your Garden</h2>
+            <form id="add-plant-form">
+                <input type="text" id="plant-nickname" placeholder="Nickname (e.g. My Lemon Tree)" required>
+                <select id="plant-species-select">
+                    </select>
+                <button type="submit" id="add-submit-btn">Add to My Garden</button>
+            </form>
+        </section>
+
+        <section id="journal-modal" style="display:none;">
+            <div class="modal-content">
+                <h3>Add Growth Log</h3>
+                <input type="hidden" id="current-plant-id">
+                <textarea id="journal-text" placeholder="Describe how it's growing today..."></textarea>
+                <input type="text" id="journal-photo-url" placeholder="Photo URL (Optional: Paste link from Google Photos/Cloud)">
+                <div class="modal-btns">
+                    <button id="save-journal-btn">Save Entry</button>
+                    <button id="close-modal-btn" type="button">Cancel</button>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>

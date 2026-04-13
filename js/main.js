@@ -5,10 +5,10 @@ const model = new GardenModel();
 const view = new GardenView('plant-grid');
 
 async function init() {
-    // 1. 図鑑（JSON）を読み込んでセレクトボックスを埋める
     const encyclopedia = await model.fetchPlantEncyclopedia();
-    const select = document.getElementById('plant-species-select');
     
+    // セレクトボックスの生成
+    const select = document.getElementById('plant-species-select');
     encyclopedia.forEach(species => {
         const option = document.createElement('option');
         option.value = species.id;
@@ -16,43 +16,58 @@ async function init() {
         select.appendChild(option);
     });
 
-    // 2. 初回起動時、もし庭が空ならテストデータを表示
-    if (model.garden.length === 0) {
-        encyclopedia.slice(0, 3).forEach(plant => model.addPlant(plant));
-    }
-
-    // 3. 描画
     view.renderPlantList(model.garden);
-    setupFilters();
-    setupForm(encyclopedia);
+    setupEventListeners(encyclopedia);
 }
 
-// 植物を追加するフォームの処理
-function setupForm(encyclopedia) {
-    const form = document.getElementById('add-plant-form');
-    form.addEventListener('submit', (e) => {
+function setupEventListeners(encyclopedia) {
+    // 1. 植物追加フォーム
+    document.getElementById('add-plant-form').addEventListener('submit', (e) => {
         e.preventDefault();
         const nickname = document.getElementById('plant-nickname').value;
         const speciesId = document.getElementById('plant-species-select').value;
         const speciesData = encyclopedia.find(s => s.id === speciesId);
         
-        const newPlant = { ...speciesData, nickname: nickname, added_date: new Date().toISOString() };
-        model.addPlant(newPlant);
-        view.renderPlantList(model.garden); // 再描画
-        form.reset();
+        model.addPlant({ ...speciesData, nickname, added_date: new Date().toISOString(), journal: [] });
+        view.renderPlantList(model.garden);
+        e.target.reset();
     });
-}
 
-function setupFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
+    // 2. フィルター
+    document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const type = e.target.dataset.type;
-            const filtered = type === 'all' 
-                ? model.garden 
-                : model.garden.filter(p => p.type === type);
+            const filtered = type === 'all' ? model.garden : model.garden.filter(p => p.type === type);
             view.renderPlantList(filtered);
         });
+    });
+
+    // 3. 日記モーダルの制御（イベント委譲）
+    document.getElementById('plant-grid').addEventListener('click', (e) => {
+        if (e.target.classList.contains('log-btn')) {
+            const id = e.target.dataset.id;
+            document.getElementById('current-plant-id').value = id;
+            document.getElementById('journal-modal').style.display = 'block';
+        }
+    });
+
+    // 4. 日記の保存
+    document.getElementById('save-journal-btn').addEventListener('click', () => {
+        const id = document.getElementById('current-plant-id').value;
+        const text = document.getElementById('journal-text').value;
+        const photo = document.getElementById('journal-photo-url').value;
+
+        if (text) {
+            model.addJournalEntry(id, {
+                date: new Date().toLocaleDateString(),
+                text: text,
+                photo: photo
+            });
+            view.renderPlantList(model.garden);
+            document.getElementById('journal-modal').style.display = 'none';
+            document.getElementById('journal-text').value = '';
+            document.getElementById('journal-photo-url').value = '';
+        }
     });
 }
 
