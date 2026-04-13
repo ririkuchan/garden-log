@@ -27,7 +27,7 @@ function refreshUI() {
     updateTasks(model.garden);
 }
 
-// タスクリスト（水やり予定など）を生成する
+// タスクリストを生成する
 function updateTasks(plants) {
     const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
@@ -46,14 +46,13 @@ function updateTasks(plants) {
 }
 
 function setupEventListeners(encyclopedia) {
-    // 【追加】右上の +Add Plant ボタンをクリックした時にフォームへスクロール
-    // クラス名が .add-plant-header-btn の場合（HTMLを確認してください）
-    const headerAddBtn = document.querySelector('.add-plant-header-btn'); 
-    headerAddBtn?.addEventListener('click', () => {
-        document.getElementById('add-plant-form').scrollIntoView({ behavior: 'smooth' });
+    // 1. 右上の "+ Add Plant" ボタンでフォームへスクロール
+    const addPlantBtn = document.getElementById('add-plant-btn');
+    addPlantBtn?.addEventListener('click', () => {
+        document.getElementById('add-plant-section').scrollIntoView({ behavior: 'smooth' });
     });
 
-    // 1. 植物追加フォーム
+    // 2. 植物追加フォームの送信
     document.getElementById('add-plant-form').addEventListener('submit', (e) => {
         e.preventDefault();
         const nickname = document.getElementById('plant-nickname').value;
@@ -64,7 +63,7 @@ function setupEventListeners(encyclopedia) {
             ...speciesData, 
             id: `${speciesData.id}-${Date.now()}`, 
             nickname, 
-            added_date: new Date().toISOString(), 
+            added_date: new Date().toLocaleDateString('ja-JP'), // 追加日も西暦で記録
             journal: [] 
         };
 
@@ -73,7 +72,7 @@ function setupEventListeners(encyclopedia) {
         e.target.reset();
     });
 
-    // 2. フィルター
+    // 3. カテゴリフィルター
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const type = e.target.dataset.type;
@@ -82,35 +81,41 @@ function setupEventListeners(encyclopedia) {
         });
     });
 
-    // 3. 日記モーダルの制御（開く）
+    // 4. 日記モーダルを開く（イベント委譲）
     document.getElementById('plant-grid').addEventListener('click', (e) => {
         if (e.target.classList.contains('log-btn')) {
             const id = e.target.dataset.id;
             document.getElementById('current-plant-id').value = id;
-            document.getElementById('journal-modal').style.display = 'block';
+            document.getElementById('journal-modal').style.display = 'flex'; // style.cssに合わせてflexかblockに
         }
     });
 
-    // 【修正】モーダルを閉じる処理（×ボタンとキャンセルボタン両方に対応）
-    const closeButtons = document.querySelectorAll('#close-modal-btn, .cancel-btn');
-    closeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.getElementById('journal-modal').style.display = 'none';
-        });
+    // 5. モーダルを閉じる（Cancelボタン）
+    document.getElementById('close-modal-btn').addEventListener('click', () => {
+        document.getElementById('journal-modal').style.display = 'none';
     });
 
-    // 4. 日記の保存
+    // 6. 日記の保存
     document.getElementById('save-journal-btn').addEventListener('click', () => {
         const id = document.getElementById('current-plant-id').value;
         const text = document.getElementById('journal-text').value;
         const photo = document.getElementById('journal-photo-url').value;
 
         if (text) {
+            // 西暦・月・日を「2026/4/13」の形式で取得
+            const today = new Date();
+            const dateString = today.toLocaleDateString('ja-JP', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+
             model.addJournalEntry(id, {
-                date: new Date().toLocaleDateString(),
+                date: dateString,
                 text: text,
                 photo: photo
             });
+
             refreshUI(); 
             document.getElementById('journal-modal').style.display = 'none';
             document.getElementById('journal-text').value = '';
