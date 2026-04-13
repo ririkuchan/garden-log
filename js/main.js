@@ -23,13 +23,11 @@ async function init() {
     setupEventListeners(encyclopedia);
 }
 
-// 画面表示を最新の状態にする関数
 function refreshUI() {
     view.renderPlantList(model.garden);
     updateTasks(model.garden);
 }
 
-// タスクリストを生成する
 function updateTasks(plants) {
     const taskList = document.getElementById('task-list');
     if (!taskList) return;
@@ -62,7 +60,7 @@ function setupEventListeners(encyclopedia) {
         };
     }
 
-    // 2. 植物追加フォームの送信
+    // 2. 植物追加フォーム
     const addPlantForm = document.getElementById('add-plant-form');
     if (addPlantForm) {
         addPlantForm.addEventListener('submit', (e) => {
@@ -101,12 +99,17 @@ function setupEventListeners(encyclopedia) {
             if (e.target.classList.contains('log-btn')) {
                 const id = e.target.dataset.id;
                 document.getElementById('current-plant-id').value = id;
+                
+                // 【追加】今日の日付をデフォルトでセット
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('journal-date').value = today;
+
                 document.getElementById('journal-modal').style.display = 'flex';
             }
         });
     }
 
-    // 5. モーダルを閉じる（Cancelボタン）
+    // 5. モーダルを閉じる
     const closeModalBtn = document.getElementById('close-modal-btn');
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', () => {
@@ -121,17 +124,16 @@ function setupEventListeners(encyclopedia) {
             const id = document.getElementById('current-plant-id').value;
             const text = document.getElementById('journal-text').value;
             const photo = document.getElementById('journal-photo-url').value;
+            
+            // 【修正】入力された日付を取得
+            const selectedDate = document.getElementById('journal-date').value;
 
-            if (text) {
-                const today = new Date();
-                const dateString = today.toLocaleDateString('ja-JP', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit'
-                });
+            if (text && selectedDate) {
+                // 表示用に yyyy/mm/dd 形式に整形
+                const dateDisplay = selectedDate.replace(/-/g, '/');
 
                 model.addJournalEntry(id, {
-                    date: dateString,
+                    date: dateDisplay,
                     text: text,
                     photo: photo
                 });
