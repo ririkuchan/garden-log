@@ -19,11 +19,21 @@ export default class GardenView {
         const card = document.createElement('div');
         card.classList.add('plant-card');
         
-        // メイン画像はAPIで自動取得
-        const mainImageUrl = `https://source.unsplash.com/featured/?${plant.name},garden`;
+        // 1. 基本となる検索用URL
+        const query = encodeURIComponent(plant.name);
+        // source.unsplash.com よりも images.unsplash.com の方が安定します
+        const mainImageUrl = `https://source.unsplash.com/400x300/?${query},plant`;
+        // もしダメだった時の予備画像URL
+        const fallbackUrl = `https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=400&q=80`;
 
         card.innerHTML = `
-            <img src="${mainImageUrl}" alt="${plant.image_alt}" class="plant-card-img" style="width:100%; height:150px; object-fit:cover; border-radius:8px;">
+            <div class="card-image-wrapper">
+                <img src="${mainImageUrl}" 
+                     alt="${plant.image_alt}" 
+                     class="plant-card-img" 
+                     onerror="this.onerror=null;this.src='${fallbackUrl}';" 
+                     style="width:100%; height:150px; object-fit:cover; border-radius:8px;">
+            </div>
             <div class="card-content">
                 <h3>${plant.nickname || plant.name}</h3>
                 <p class="species-tag">${plant.name}</p>

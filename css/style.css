@@ -44,6 +44,23 @@ main {
   padding: 0 1rem;
 }
 
+/* 右上のボタン: 前のテラコッタ色に戻す */
+.nav-btn {
+    background-color: var(--accent-color); /* #b06a4d のようなテラコッタ色 */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #8e553e; /* 少し暗くしてホバー効果 */
+}
+
 /* 4. Dashboard (Grid) */
 #plant-grid {
   display: grid;
