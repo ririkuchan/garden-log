@@ -1,16 +1,17 @@
 [
   {
-    "id": "lemon-01",
-    "name": "Meyer Lemon",
-    "scientific_name": "Citrus x meyeri",
-    "type": "Citrus",
-    "sunlight": "Full Sun",
-    "water_interval_days": 3,
-    "ph_ideal": 6.5,
-    "pruning_season": "Late Winter",
-    "fertilizer_type": "Nitrogen-rich",
-    "hardiness_zone": "9-11",
-    "image_alt": "A bright yellow Meyer lemon on a branch"
+  "id": "lemon-01",
+  "name": "Meyer Lemon",
+  "scientific_name": "Citrus x meyeri",
+  "type": "Citrus",
+  "sunlight": "Full Sun",
+  "water_interval_days": 3,
+  "ph_ideal": 6.5,
+  "pruning_season": "Late Winter",
+  "fertilizer_type": "Nitrogen-rich",
+  "hardiness_zone": "9-11",
+  "image_alt": "A bright yellow Meyer lemon on a branch",
+  "image_url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41?q=80&w=400&auto=format&fit=crop"
   },
   {
     "id": "fig-01",
@@ -23,8 +24,9 @@
     "pruning_season": "Winter",
     "fertilizer_type": "Balanced 10-10-10",
     "hardiness_zone": "7-11",
-    "image_alt": "Large green and purple figs hanging from a tree"
-  },
+    "image_alt": "Large green and purple figs hanging from a tree",
+    "image_url": "https://images.unsplash.com/photo-1633932850276-4382027c868a?q=80&w=2565&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
   {
     "id": "blueberry-01",
     "name": "Blueberry",
@@ -36,7 +38,8 @@
     "pruning_season": "Late Winter",
     "fertilizer_type": "Acidifying",
     "hardiness_zone": "3-8",
-    "image_alt": "Clusters of ripe blue berries on a bush"
+    "image_alt": "Clusters of ripe blue berries on a bush",
+    "image_url": "https://images.unsplash.com/photo-1652892297399-625b76872d7b?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "kiwi-01",
@@ -49,7 +52,8 @@
     "pruning_season": "Winter",
     "fertilizer_type": "Organic Compost",
     "hardiness_zone": "7-9",
-    "image_alt": "Golden kiwis hanging from a vine"
+    "image_alt": "Golden kiwis hanging from a vine",
+    "image_url": "https://plus.unsplash.com/premium_photo-1666299434471-1815114cdccc?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "blackberry-01",
@@ -62,7 +66,8 @@
     "pruning_season": "Summer",
     "fertilizer_type": "Balanced 10-10-10",
     "hardiness_zone": "5-8",
-    "image_alt": "Ripe blackberries on a thorny bush"
+    "image_alt": "Ripe blackberries on a thorny bush",
+    "image_url": "https://images.unsplash.com/photo-1500301802642-622bee979621?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "guava-01",
@@ -75,7 +80,8 @@
     "pruning_season": "Spring",
     "fertilizer_type": "Potassium-rich",
     "hardiness_zone": "9-11",
-    "image_alt": "A green guava fruit on a tree branch"
+    "image_alt": "A green guava fruit on a tree branch",
+    "image_url": "https://images.unsplash.com/photo-1561109430-e2fcfbf6aee9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "tulip-01",
@@ -88,7 +94,8 @@
     "pruning_season": "After Blooming",
     "fertilizer_type": "Bulb Food",
     "hardiness_zone": "3-8",
-    "image_alt": "Colorful tulips in a spring garden"
+    "image_alt": "Colorful tulips in a spring garden",
+    "image_url": "https://images.unsplash.com/photo-1554199150-22eb3cfe888d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "ginger-01",
@@ -101,7 +108,8 @@
     "pruning_season": "N/A",
     "fertilizer_type": "Liquid Organic",
     "hardiness_zone": "9-12",
-    "image_alt": "Fresh ginger leaves growing in soft soil"
+    "image_alt": "Fresh ginger leaves growing in soft soil",
+    "image_url": "https://plus.unsplash.com/premium_photo-1675364893053-180a3c6e0119?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "myoga-01",
@@ -114,7 +122,8 @@
     "pruning_season": "N/A",
     "fertilizer_type": "Compost Tea",
     "hardiness_zone": "7-10",
-    "image_alt": "Myoga shoots emerging from the ground"
+    "image_alt": "Myoga shoots emerging from the ground",
+    "image_url": "https://int.japanesetaste.com/cdn/shop/articles/what-is-japanese-ginger-a-brief-guide-to-myoga-japanese-taste.jpg?v=1737982282&width=600"
   },
   {
     "id": "mihaya-01",
@@ -127,7 +136,8 @@
     "pruning_season": "March",
     "fertilizer_type": "Citrus Specific",
     "hardiness_zone": "8-11",
-    "image_alt": "Deep orange Mihaya citrus fruits on a tree"
+    "image_alt": "Deep orange Mihaya citrus fruits on a tree",
+    "image_url": "https://images.unsplash.com/photo-1465845075873-957c8326f63e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": "yuzu-01",
@@ -140,6 +150,7 @@
     "pruning_season": "March",
     "fertilizer_type": "Citrus Specific",
     "hardiness_zone": "8-11",
-    "image_alt": "Yellow yuzu fruits with bumpy skin on a branch"
+    "image_alt": "Yellow yuzu fruits with bumpy skin on a branch",
+    "image_url": "https://images.unsplash.com/photo-1707403735805-b51972844a55?q=80&w=2662&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ]
