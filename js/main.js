@@ -39,7 +39,6 @@ function updateTasks(plants) {
 
     plants.forEach(plant => {
         const li = document.createElement('li');
-        // JSONにある water_interval_days を使用
         const interval = plant.water_interval_days || 'Check soil';
         li.innerHTML = `<strong>${plant.nickname || plant.name}</strong>: Water every ${interval} days.`;
         taskList.appendChild(li);
@@ -47,6 +46,13 @@ function updateTasks(plants) {
 }
 
 function setupEventListeners(encyclopedia) {
+    // 【追加】右上の +Add Plant ボタンをクリックした時にフォームへスクロール
+    // クラス名が .add-plant-header-btn の場合（HTMLを確認してください）
+    const headerAddBtn = document.querySelector('.add-plant-header-btn'); 
+    headerAddBtn?.addEventListener('click', () => {
+        document.getElementById('add-plant-form').scrollIntoView({ behavior: 'smooth' });
+    });
+
     // 1. 植物追加フォーム
     document.getElementById('add-plant-form').addEventListener('submit', (e) => {
         e.preventDefault();
@@ -54,17 +60,16 @@ function setupEventListeners(encyclopedia) {
         const speciesId = document.getElementById('plant-species-select').value;
         const speciesData = encyclopedia.find(s => s.id === speciesId);
         
-        // IDが重複しないようにユニークなID（タイムスタンプ）を付与
         const newPlant = { 
             ...speciesData, 
-            id: `${speciesData.id}-${Date.now()}`, // 同じ種を複数植えても大丈夫なように
+            id: `${speciesData.id}-${Date.now()}`, 
             nickname, 
             added_date: new Date().toISOString(), 
             journal: [] 
         };
 
         model.addPlant(newPlant);
-        refreshUI(); // 画面全体を更新
+        refreshUI(); 
         e.target.reset();
     });
 
@@ -74,11 +79,10 @@ function setupEventListeners(encyclopedia) {
             const type = e.target.dataset.type;
             const filtered = type === 'all' ? model.garden : model.garden.filter(p => p.type === type);
             view.renderPlantList(filtered);
-            // フィルター時はタスクリストは変えない（庭全体のため）
         });
     });
 
-    // 3. 日記モーダルの制御
+    // 3. 日記モーダルの制御（開く）
     document.getElementById('plant-grid').addEventListener('click', (e) => {
         if (e.target.classList.contains('log-btn')) {
             const id = e.target.dataset.id;
@@ -87,9 +91,12 @@ function setupEventListeners(encyclopedia) {
         }
     });
 
-    // モーダルを閉じる処理（キャンセルボタン）
-    document.getElementById('close-modal-btn').addEventListener('click', () => {
-        document.getElementById('journal-modal').style.display = 'none';
+    // 【修正】モーダルを閉じる処理（×ボタンとキャンセルボタン両方に対応）
+    const closeButtons = document.querySelectorAll('#close-modal-btn, .cancel-btn');
+    closeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById('journal-modal').style.display = 'none';
+        });
     });
 
     // 4. 日記の保存
@@ -104,7 +111,7 @@ function setupEventListeners(encyclopedia) {
                 text: text,
                 photo: photo
             });
-            refreshUI(); // 画面全体を更新
+            refreshUI(); 
             document.getElementById('journal-modal').style.display = 'none';
             document.getElementById('journal-text').value = '';
             document.getElementById('journal-photo-url').value = '';
